@@ -1,0 +1,35 @@
+ekf_se_node:
+  ros__parameters:
+    frequency: 30.0  # Assurez-vous que c'est un entier
+    sensor_timeout: 0.1  # Timeout des capteurs
+    two_d_mode: true  # Si votre robot fonctionne en 2D
+
+    odom0: diff_cont/odom
+    odom0_config: [false, false, false,
+                   false, false, false,
+                   true,  true, false,
+                   false, false, false,
+                   false, false, false]
+
+    imu0: imu/data
+    imu0_config: [false, false, false,
+                  true,  true,  true,
+                  false, false, false,
+                  true,  true,  true,
+                  false, false, false]
+
+    imu0_differential: false
+    imu0_relative: true
+    imu0_remove_gravitational_acceleration: true
+
+    use_control: false
+    stamped_control: false
+
+    publish_tf: true
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # Topic name for filtered odometry
+    odometry_topic: /odometry/filtered
